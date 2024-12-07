@@ -20,11 +20,46 @@ else:
 
 # State and city mapping for dropdown population
 STATE_CITY_MAP = {
-    "Maharashtra": ["Mumbai", "Pune", "Nashik"],
-    "Goa": ["Panaji", "Mapusa", "Madgaon"],
-    "Gujarat": ["Ahmedabad", "Vadodara"],
-    "Kerala": ["Kozhikode"]
+    "Maharashtra": ["Mumbai", "Pune", "Nashik", "Nagpur", "Aurangabad", "Thane"],
+    "Goa": ["Panaji", "Mapusa", "Madgaon", "Vasco da Gama", "Margao"],
+    "Gujarat": ["Ahmedabad", "Vadodara", "Surat", "Rajkot", "Bhavnagar", "Gandhinagar"],
+    "Kerala": ["Kozhikode", "Thiruvananthapuram", "Kochi", "Kottayam", "Thrissur", "Kollam"],
+    "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Allahabad", "Gorakhpur", "Meerut"],
+    "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Munger"],
+    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Tirunelveli", "Erode"],
+    "West Bengal": ["Kolkata", "Siliguri", "Asansol", "Durgapur", "Howrah", "Kolkata"],
+    "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota", "Ajmer", "Bikaner", "Bhilwara"],
+    "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar"],
+    "Punjab": ["Chandigarh", "Amritsar", "Ludhiana", "Jalandhar", "Patiala"],
+    "Haryana": ["Gurugram", "Faridabad", "Hisar", "Ambala", "Karnal"],
+    "Delhi": ["New Delhi", "Delhi Cantonment", "Dwarka", "Karol Bagh", "Connaught Place"],
+    "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Tirupati", "Kakinada"],
+    "Telangana": ["Hyderabad", "Warangal", "Khammam", "Karimnagar", "Nizamabad"],
+    "Karnataka": ["Bengaluru", "Mysuru", "Mangalore", "Hubli", "Belagavi"],
+    "Uttarakhand": ["Dehradun", "Nainital", "Haridwar", "Rishikesh", "Roorkee"],
+    "Himachal Pradesh": ["Shimla", "Manali", "Kullu", "Dharamshala", "Kangra"],
+    "Chhattisgarh": ["Raipur", "Bilaspur", "Korba", "Durg", "Jagdalpur"],
+    "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Hazaribagh", "Bokaro Steel City"],
+    "Odisha": ["Bhubaneswar", "Cuttack", "Berhampur", "Rourkela", "Puri"],
+    "Assam": ["Guwahati", "Dibrugarh", "Jorhat", "Silchar", "Nagaon"],
+    "Nagaland": ["Kohima", "Dimapur"],
+    "Meghalaya": ["Shillong", "Tura", "Jowai"],
+    "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro"],
+    "Mizoram": ["Aizawl", "Lunglei", "Champhai"],
+    "Tripura": ["Agartala", "Udaipur", "Ambassa"],
+    "Manipur": ["Imphal", "Thoubal", "Churachandpur"],
+    "Sikkim": ["Gangtok", "Namchi", "Jorethang"],
+    "Goa": ["Panaji", "Mapusa", "Madgaon", "Vasco da Gama", "Margao"],
+    "Lakshadweep": ["Kavaratti", "Agatti", "Minicoy"],
+    "Andaman and Nicobar Islands": ["Port Blair", "Diglipur", "Havelock"],
+    "Bengal": ["Kolkata", "Siliguri", "Asansol", "Durgapur"],
+    "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag", "Baramulla"],
+    "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"],
+    "Chandigarh": ["Chandigarh"],
+    "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Munger"],
+    "Sikkim": ["Gangtok", "Namchi", "Jorethang"]
 }
+
 
 # Function to generate a GPT-4 case scenario
 def generate_case(category, state, city, country, timeline):
@@ -99,10 +134,65 @@ def homepage():
     )
 
     # Other input fields
+    case_categories = [
+    "Adoption and surrogacy law",
+    "Alternative dispute resolution (ADR) and arbitration",
+    "Antitrust and competition law",
+    "Banking and financial regulations",
+    "Bankruptcy and insolvency cases",
+    "Civil rights violations (Discrimination, Police brutality)",
+    "Consumer credit and debt collection",
+    "Consumer protection and unfair trade practices",
+    "Contract disputes and breaches",
+    "Criminal defense and prosecution",
+    "Cybercrime and data protection laws",
+    "Cybersecurity laws and hacking cases",
+    "Defamation and libel",
+    "Employment law (Wages, Employee rights, Workplace discrimination)",
+    "Environmental law and regulations",
+    "Family law (Divorce, Child custody, Alimony)",
+    "Fraudulent practices and scams",
+    "Freedom of speech and expression (Censorship)",
+    "Harassment claims (e.g., sexual harassment)",
+    "Immigration law and visas",
+    "Insurance claims and disputes",
+    "Intellectual property (Patents, copyrights, trade secrets)",
+    "Land acquisition and compensation issues",
+    "Medical malpractice and negligence claims",
+    "Pollution and contamination cases",
+    "Personal injury and compensation claims",
+    "Pollution and environmental contamination cases",
+    "Public international law (Treaties, Diplomatic immunity)",
+    "Real estate disputes (Property rights, Landlord-tenant issues)",
+    "Securities and investment fraud",
+    "Sports law (Contracts, Player disputes)",
+    "Tax law and disputes",
+    "Trademark registration and infringement",
+    "Wills, trusts, and estate planning",
+    "Workplace discrimination and employment claims",
+    "Whistleblower claims and retaliation",
+    "Consumer fraud and deceptive practices",
+    "Product liability and safety claims",
+    "Medical ethics and malpractice",
+    "Negotiation and settlement law",
+    "Mergers and acquisitions law",
+    "Privacy law and data breach",
+    "Regulatory compliance (industry-specific)",
+    "Real estate law (Zoning, Property disputes)",
+    "Debt recovery and collections",
+    "Foreign investments and cross-border disputes",
+    "Landlord-tenant disputes",
+    "Legal malpractice and ethics violations",
+    "Municipal law (Local governance, Zoning laws)",
+    "Criminal appeals and post-conviction cases",
+    "International arbitration and dispute resolution",
+    "Social justice and civil liberties",
+    "Consumer rights in e-commerce"
+]
+
     category = st.selectbox(
         "Select Category",
-        ["Fraudulent practices and scams", "Pollution and contamination cases",
-         "Trademark registration and infringement", "Harassment claims (e.g., sexual harassment)"],
+        case_categories,
         key="category_home"
     )
 
