@@ -4,13 +4,15 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 
-# Set Streamlit page config first
+# Set Streamlit page config first (this should be the first Streamlit command)
 st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
 
 # Load environment variables from .env file
 load_dotenv()
 
-openai.api_key =  os.getenv('API_KEY')
+# Access the API key from the environment
+openai.api_key = os.getenv('API_KEY')
+
 if openai.api_key:
     st.write("API Key successfully loaded!")
 else:
