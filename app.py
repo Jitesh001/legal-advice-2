@@ -4,8 +4,8 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 
-# Set Streamlit page config first (this should be the first Streamlit command)
-#st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
+# Set Streamlit page config first (outside the main function)
+st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
 
 # Load environment variables from .env file
 load_dotenv()
@@ -66,7 +66,6 @@ def analyze_solution(scenario, user_solution):
 
 # Main function to handle navigation and app rendering
 def main():
-    st.set_page_config(page_title="Legal Help Case Assistant", layout="wide")
     st.title("Legal Help Case Assistant")
     menu = st.sidebar.selectbox("Menu", ["Home", "Case", "Analysis"], key="main_menu")
 
@@ -130,47 +129,6 @@ def homepage():
             st.session_state.analysis_feedback = ""
             st.success("Case scenario generated successfully. Select Case Menu")
             st.query_params.update({"page": "Case"})
-# def homepage():
-#     st.header("Welcome to Legal Help")
-#     st.write(
-#         "Select a category to generate a case scenario and submit your solution for GPT's analysis."
-#     )
-
-#     # Dropdowns for the user to input state, city, country, timeline
-#     category = st.selectbox(
-#         "Select Category",
-#         ["Fraudulent practices and scams", "Pollution and contamination cases",
-#          "Trademark registration and infringement", "Harassment claims (e.g., sexual harassment)"],
-#         key="category_home"
-#     )
-#     state = st.text_input("Enter State", key="state_home")
-#     city = st.text_input("Enter City", key="city_home")
-#     country = st.text_input("Enter Country", key="country_home")
-#     timeline = st.text_input("Enter timeline (format YYYY-MM-DD)", key="timeline_home")
-
-#     # Button to proceed to generate the case
-#     if st.button("Continue", key="continue_home"):
-#         # Validate timeline
-#         try:
-#             # Attempt to parse the date to check if it's valid
-#             datetime.strptime(timeline, "%Y-%m-%d")
-#         except ValueError:
-#             st.error("Invalid date format. Please use the format YYYY-MM-DD.")
-#             return
-
-#         if not state or not city or not country or not timeline:
-#             st.error("Please fill out all fields to generate the case scenario.")
-#         else:
-#             with st.spinner("Generating case scenario..."):
-#                 scenario = generate_case(category, state, city, country, timeline)
-
-#             # Save the scenario into session state for continuity
-#             st.session_state.scenario = scenario
-#             st.session_state.user_solution = ""
-#             st.session_state.analysis_feedback = ""
-#             st.success("Case scenario generated successfully.")
-#             st.experimental_set_query_params(page="Case")
-
 
 # Placeholder for the Case Page
 def case_page():
@@ -207,6 +165,4 @@ def analysis_page():
 
 # Run the main navigation menu
 if __name__ == "__main__":
-    # Set Streamlit page config first (this should be the first Streamlit command)
-    st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
     main()
