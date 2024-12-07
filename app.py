@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 
 # Set Streamlit page config first (this should be the first Streamlit command)
-st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
+#st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
 
 # Load environment variables from .env file
 load_dotenv()
@@ -207,4 +207,6 @@ def analysis_page():
 
 # Run the main navigation menu
 if __name__ == "__main__":
+    # Set Streamlit page config first (this should be the first Streamlit command)
+    st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
     main()
