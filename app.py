@@ -4,6 +4,9 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 
+# Set Streamlit page config first
+st.set_page_config(page_title="Legal Adviser", page_icon=":guardsman:", layout="wide")
+
 # Load environment variables from .env file
 load_dotenv()
 
