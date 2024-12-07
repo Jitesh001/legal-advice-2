@@ -8,7 +8,11 @@ import os
 load_dotenv()
 
 openai.api_key =  os.getenv('API_KEY')
-print('api key', openai.api_key)
+if openai.api_key:
+    st.write("API Key successfully loaded!")
+else:
+    st.write("API Key not found.")
+
 # State and city mapping for dropdown population
 STATE_CITY_MAP = {
     "Maharashtra": ["Mumbai", "Pune", "Nashik"],
